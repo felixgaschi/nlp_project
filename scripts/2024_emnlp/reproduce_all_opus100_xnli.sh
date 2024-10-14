@@ -8,6 +8,7 @@ MODEL=$3
 ADD_ARGS=$4
 
 langs="ar bg de el es fr hi ru th tr vi zh"
+additional_langs="cs lv af ca da fa fi he hu it ja ko lt no pl pt ro sk sl sv ta uk"
 
 mkdir -p $DATA_DIR
 
@@ -51,7 +52,8 @@ python scripts/2023_acl/controlled_realignment.py \
     --n_epochs 2 \
     --right_langs $langs \
     --project_prefix "34langs_" \
-    --output_file $RESULT_DIR/${MODEL}__xnli__$DATASET.csv $ADD_ARGS
+    --output_file $RESULT_DIR/${MODEL}__xnli__${DATASET}__with_additional.csv $ADD_ARGS \
+    --additional_realignment_langs $additional_langs
 
 # echo ""
 # echo "Testing controlled_realignment.py staged-realignment..."
@@ -68,7 +70,7 @@ python scripts/2023_acl/controlled_realignment.py \
 #     --n_epochs 2 \
 #     --right_langs $langs \
 #     --project_prefix "34langs_" \
-#     --output_file $RESULT_DIR/${MODEL}__xnli__$DATASET.csv $ADD_ARGS
+#     --output_file $RESULT_DIR/${MODEL}__xnli__${DATASET}__with_additional.csv $ADD_ARGS
 
 
 # echo ""
@@ -86,7 +88,7 @@ python scripts/2023_acl/controlled_realignment.py \
 #     --n_epochs 2 \
 #     --right_langs $langs \
 #     --project_prefix "34langs_" \
-#     --output_file $RESULT_DIR/${MODEL}__xnli__$DATASET.csv $ADD_ARGS
+#     --output_file $RESULT_DIR/${MODEL}__xnli__${DATASET}__with_additional.csv $ADD_ARGS
 
 
 echo ""
@@ -104,7 +106,8 @@ python scripts/2023_acl/controlled_realignment.py \
     --n_epochs 2 \
     --right_langs $langs \
     --project_prefix "34langs_" \
-    --output_file $RESULT_DIR/${MODEL}__xnli__$DATASET.csv $ADD_ARGS
+    --output_file $RESULT_DIR/${MODEL}__xnli__${DATASET}__with_additional.csv $ADD_ARGS \
+    --additional_realignment_langs $additional_langs
 
 
 # echo ""
@@ -122,7 +125,7 @@ python scripts/2023_acl/controlled_realignment.py \
 #     --n_epochs 2 \
 #     --right_langs $langs \
 #     --project_prefix "34langs_" \
-#     --output_file $RESULT_DIR/${MODEL}__xnli__$DATASET.csv $ADD_ARGS
+#     --output_file $RESULT_DIR/${MODEL}__xnli__${DATASET}__with_additional.csv $ADD_ARGS
 
 
 # echo ""
@@ -140,7 +143,7 @@ python scripts/2023_acl/controlled_realignment.py \
 #     --n_epochs 2 \
 #     --right_langs $langs \
 #     --project_prefix "34langs_" \
-#     --output_file $RESULT_DIR/${MODEL}__xnli__$DATASET.csv $ADD_ARGS
+#     --output_file $RESULT_DIR/${MODEL}__xnli__${DATASET}__with_additional.csv $ADD_ARGS
 
 
 # echo ""
@@ -158,7 +161,7 @@ python scripts/2023_acl/controlled_realignment.py \
 #     --n_epochs 2 \
 #     --right_langs $langs \
 #     --project_prefix "34langs_" \
-#     --output_file $RESULT_DIR/${MODEL}__xnli__$DATASET.csv $ADD_ARGS
+#     --output_file $RESULT_DIR/${MODEL}__xnli__${DATASET}__with_additional.csv $ADD_ARGS
 
 
 ###########################################
@@ -180,7 +183,7 @@ python scripts/2023_acl/controlled_realignment.py \
 #     --n_epochs 2 \
 #     --right_langs $langs \
 #     --project_prefix "34langs_" \
-#     --output_file $RESULT_DIR/${MODEL}__xnli__$DATASET.csv $ADD_ARGS
+#     --output_file $RESULT_DIR/${MODEL}__xnli__${DATASET}__with_additional.csv $ADD_ARGS
 
 # echo ""
 # echo "Testing controlled_realignment.py staged-realignment..."
@@ -197,7 +200,7 @@ python scripts/2023_acl/controlled_realignment.py \
 #     --n_epochs 2 \
 #     --right_langs $langs \
 #     --project_prefix "34langs_" \
-#     --output_file $RESULT_DIR/${MODEL}__xnli__$DATASET.csv $ADD_ARGS
+#     --output_file $RESULT_DIR/${MODEL}__xnli__${DATASET}__with_additional.csv $ADD_ARGS
 
 
 echo ""
@@ -215,7 +218,8 @@ python scripts/2023_acl/controlled_realignment.py \
     --n_epochs 2 \
     --right_langs $langs \
     --project_prefix "34langs_" \
-    --output_file $RESULT_DIR/${MODEL}__xnli__$DATASET.csv $ADD_ARGS
+    --output_file $RESULT_DIR/${MODEL}__xnli__${DATASET}__with_additional.csv $ADD_ARGS  \
+    --additional_realignment_langs $additional_langs
 
 
 ###########################################
@@ -240,7 +244,8 @@ python scripts/2023_acl/controlled_realignment.py \
     --n_epochs 2 \
     --right_langs $langs \
     --project_prefix "34langs_" \
-    --output_file $RESULT_DIR/${MODEL}__xnli__$DATASET.csv $ADD_ARGS
+    --output_file $RESULT_DIR/${MODEL}__xnli__${DATASET}__with_additional.csv $ADD_ARGS  \
+    --additional_realignment_langs $additional_langs
 
 # echo ""
 # echo "Testing controlled_realignment.py staged-realignment..."
@@ -257,7 +262,7 @@ python scripts/2023_acl/controlled_realignment.py \
 #     --n_epochs 2 \
 #     --right_langs $langs \
 #     --project_prefix "34langs_" \
-#     --output_file $RESULT_DIR/${MODEL}__xnli__$DATASET.csv $ADD_ARGS
+#     --output_file $RESULT_DIR/${MODEL}__xnli__${DATASET}__with_additional.csv $ADD_ARGS
 
 
 # echo ""
@@ -275,7 +280,7 @@ python scripts/2023_acl/controlled_realignment.py \
 #     --n_epochs 2 \
 #     --right_langs $langs \
 #     --project_prefix "34langs_" \
-#     --output_file $RESULT_DIR/${MODEL}__xnli__$DATASET.csv $ADD_ARGS
+#     --output_file $RESULT_DIR/${MODEL}__xnli__${DATASET}__with_additional.csv $ADD_ARGS
 
 ###########################################
 # PARTIAL-REALIGNMENT DURING - FRONT FROZEN
@@ -296,7 +301,7 @@ python scripts/2023_acl/controlled_realignment.py \
 #     --n_epochs 2 \
 #     --right_langs $langs \
 #     --project_prefix "34langs_" \
-#     --output_file $RESULT_DIR/${MODEL}__xnli__$DATASET.csv $ADD_ARGS
+#     --output_file $RESULT_DIR/${MODEL}__xnli__${DATASET}__with_additional.csv $ADD_ARGS
 
 
 # echo ""
@@ -314,7 +319,7 @@ python scripts/2023_acl/controlled_realignment.py \
 #     --n_epochs 2 \
 #     --right_langs $langs \
 #     --project_prefix "34langs_" \
-#     --output_file $RESULT_DIR/${MODEL}__xnli__$DATASET.csv $ADD_ARGS
+#     --output_file $RESULT_DIR/${MODEL}__xnli__${DATASET}__with_additional.csv $ADD_ARGS
 
 
 # echo ""
@@ -332,7 +337,7 @@ python scripts/2023_acl/controlled_realignment.py \
 #     --n_epochs 2 \
 #     --right_langs $langs \
 #     --project_prefix "34langs_" \
-#     --output_file $RESULT_DIR/${MODEL}__xnli__$DATASET.csv $ADD_ARGS
+#     --output_file $RESULT_DIR/${MODEL}__xnli__${DATASET}__with_additional.csv $ADD_ARGS
 
 
 # ##########################################
@@ -354,7 +359,7 @@ python scripts/2023_acl/controlled_realignment.py \
 #     --n_epochs 2 \
 #     --right_langs $langs \
 #     --project_prefix "34langs_" \
-#     --output_file $RESULT_DIR/${MODEL}__xnli__$DATASET.csv $ADD_ARGS
+#     --output_file $RESULT_DIR/${MODEL}__xnli__${DATASET}__with_additional.csv $ADD_ARGS
 
 
 # echo ""
@@ -372,7 +377,7 @@ python scripts/2023_acl/controlled_realignment.py \
 #     --n_epochs 2 \
 #     --right_langs $langs \
 #     --project_prefix "34langs_" \
-#     --output_file $RESULT_DIR/${MODEL}__xnli__$DATASET.csv $ADD_ARGS
+#     --output_file $RESULT_DIR/${MODEL}__xnli__${DATASET}__with_additional.csv $ADD_ARGS
 
 
 # echo ""
@@ -390,4 +395,4 @@ python scripts/2023_acl/controlled_realignment.py \
 #     --n_epochs 2 \
 #     --right_langs $langs \
 #     --project_prefix "34langs_" \
-#     --output_file $RESULT_DIR/${MODEL}__xnli__$DATASET.csv $ADD_ARGS
+#     --output_file $RESULT_DIR/${MODEL}__xnli__${DATASET}__with_additional.csv $ADD_ARGS

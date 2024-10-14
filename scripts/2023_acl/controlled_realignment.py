@@ -55,6 +55,7 @@ def train(
     n_epochs=5,
     layers=None,
     result_store=None,
+    additional_realignment_langs=None,
 ):
     layers = layers or [-1]
     model_name = config["model"]
@@ -160,7 +161,7 @@ def train(
     # print()
 
     # Load realignment datatset
-    lang_pairs = [(left_lang, right_lang) for right_lang in right_langs]
+    lang_pairs = [(left_lang, right_lang) for right_lang in right_langs + (additional_realignment_langs or [])]
     if aligner == "fastalign":
         alignment_dataset = get_multilingual_realignment_dataset(
             tokenizer,
@@ -286,6 +287,13 @@ if __name__ == "__main__":
         help="Target languages for cross-lingual transfer",
     )
     parser.add_argument(
+        "--additional_realignment_langs",
+        type=str,
+        nargs="+",
+        default=None,
+        help="Target languages for cross-lingual transfer",
+    )
+    parser.add_argument(
         "--cache_dir",
         type=str,
         default=None,
@@ -363,7 +371,7 @@ if __name__ == "__main__":
         ]["values"][:1]
 
     with ExitStack() as stack:
-        if "zh" in args.right_langs or args.left_lang == "zh":
+        if "zh" in args.right_langs + (args.additional_realignment_langs or []) or args.left_lang == "zh":
             # Calls Stanford Segmenter in another process, hence the context manager
             zh_segmenter = stack.enter_context(StanfordSegmenter(port=args.segmenter_port))
         else:
@@ -406,6 +414,7 @@ if __name__ == "__main__":
                     cache_dir=args.cache_dir,
                     n_epochs=args.n_epochs,
                     result_store=result_store,
+                    additional_realignment_langs=args.additional_realignment_langs
                 ),
                 sweep_config,
                 sweep_id,
@@ -439,5 +448,6 @@ if __name__ == "__main__":
                     cache_dir=args.cache_dir,
                     n_epochs=args.n_epochs,
                     result_store=result_store,
+                    additional_realignment_langs=args.additional_realignment_langs,
                 )
                 recorder.add(result_store.get_results())
