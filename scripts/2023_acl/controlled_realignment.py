@@ -319,6 +319,7 @@ if __name__ == "__main__":
     )
     parser.add_argument("--n_epochs", type=int, default=5)
     parser.add_argument("--n_seeds", type=int, default=5)
+    parser.add_argument("--seeds", type=int, nargs="+", default=None)
     parser.add_argument(
         "--layers",
         type=int,
@@ -358,7 +359,7 @@ if __name__ == "__main__":
     sweep_config = {
         "method": "grid",
         "parameters": {
-            "seed": {"values": seeds[: args.n_seeds]},
+            "seed": {"values": seeds[: args.n_seeds] if args.seeds is None else args.seeds},
             "model": {"values": args.models},
             "task": {"values": args.tasks},
             "method": {"values": args.strategies},
