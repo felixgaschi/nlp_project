@@ -37,6 +37,24 @@ export AWESOME_DIR=$AWESOME_DIR
 # BASELINES
 ################
 
+
+echo ""
+echo "Testing controlled_realignment.py staged-realignment..."
+echo ""
+/root/miniconda3/envs/align_freeze/bin/python scripts/2023_acl/controlled_realignment.py \
+    --translation_dir $TRANSLATION_DIR/$DATASET \
+    --fastalign_dir $FASTALIGN_DIR/$DATASET \
+    --dico_dir $DICOALIGN_DIR/$DATASET \
+    --awesome_dir $AWESOME_DIR/$DATASET \
+    --strategies baseline \
+    --models $MODEL \
+    --tasks udpos \
+    --cache_dir $CACHE_DIR \
+    --n_epochs 5 \
+    --right_langs $langs \
+    --project_prefix "34langs_" \
+    --output_file $RESULT_DIR/${MODEL}__$DATASET.csv $ADD_ARGS --seeds 12
+
 echo ""
 echo "Testing controlled_realignment.py staged-realignment..."
 echo ""

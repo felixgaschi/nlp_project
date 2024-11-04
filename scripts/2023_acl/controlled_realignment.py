@@ -155,6 +155,10 @@ def train(
         datasets_cache_dir=data_cache_dir,
     )
 
+    print(f"training dataset: {len(training_dataset)}")
+    for lang, ds in zip(right_langs, validation_datasets):
+        print(f"{lang} dataset: {len(ds)}")
+
     # print()
     # print('test dataset for source language')
     # print(source_validation_dataset[:5])
